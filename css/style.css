@@ -1,0 +1,200 @@
+:root {
+  /* PRODUTO */
+  --blue: #7fc4ed;
+  --blue-dark: #659aba;
+
+  /* BASE */
+  --gray-100: #fbf9fe;
+  --gray-200: #322f40;
+  --gray-300: #282533;
+  --gray-400: #1d1b26;
+  --gray-500: #0f0e13;
+  --gray-600: #1f2128;
+  --gray-700: #4E4964;
+
+  /* TIPOGRAFIA */
+  --poppins: "Poppins", sans-serif;
+}
+
+/* PRÉ DEFINIÇÕES */
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  padding: 57px 54px 67px 54px;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--poppins);
+  background-color: var(--gray-500);
+  margin: auto;
+}
+
+.heading1 {
+  font-size: 24px;
+  line-height: 0%;
+  font-weight: 300;
+}
+
+.heading2 {
+  font-size: 24px;
+  line-height: 0%;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 16px;
+  line-height: 3%;
+  font-weight: 500;
+}
+
+.card-text {
+  font-size: 20px;
+  line-height: 0%;
+  font-weight: 600;
+}
+
+.card-text2 {
+  font-size: 12px;
+  line-height: 0%;
+  font-weight: 700;
+}
+
+.timer {
+  font-size: 32px;
+  line-height: 3%;
+  font-weight: 400;
+}
+
+.modal {
+  font-size: 24px;
+  line-height: 3%;
+  font-weight: 600;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  color: var(--gray-100);
+}
+
+.saudacao {
+  margin-left: 10px;
+}
+
+.nome {
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 20px;
+  margin-left: 5px;
+}
+
+/* MAIN */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 47px;
+  width: 320px;
+}
+
+/* CARD */
+.card {
+  background-color: var(--blue);
+  border-radius: 20px;
+  display: flex;
+  width: 208px;
+  height: 350px;
+  min-width: 208px;
+  max-width: 208px;
+  min-height: 350px;
+  max-height: 350px;
+  padding: 32px 40px;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  color: var(--gray-600);
+}
+
+.copo {
+  width: 98px;
+}
+
+/* FORM */
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  margin-top: 27px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: var(--blue);
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ml {
+  color: var(--gray-700);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500; 
+}
+
+/* RANGE */
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 100%;
+  height: 6px;
+  border-radius: 5px;
+  background: #322f40;
+  outline: none;
+}
+
+/* para o Fire Fox */
+.range::-moz-range-thumb {
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: #322f40;
+border: none;
+}
+
+/* para browsers da MS */
+.range::-ms-range-thumb {
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: #322f40;
+border: none;
+}
+
+.range::-webkit-slider-thumb{
+
+all:unset; /* limpa os estilos iniciais */
+-webkit-appearance: none; /* remove a aparencia padão */
+border: none;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+}

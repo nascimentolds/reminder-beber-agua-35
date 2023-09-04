@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+    </style>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Desafio #35 - Reminder para beber água</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img src="./images/icon.svg" alt="Emoji fazendo joinha" />
+        <div class="saudacao">
+          <span class="heading1">Boa tarde,</span>
+          <div class="nome">
+            <span class="heading2">Biro</span>
+            <img class="img" src="./images/aceno.svg" alt="Mão acenando" />
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="card">
+          <span class="card-text2">80%</span>
+          <div class="opcao">
+            <img class="copo" src="./images/agua.svg" alt="Copo com água" />
+          </div>
+          <div class="meta">
+            <span class="card-text">Beber água</span>
+            <span class="title">Meta: 3L</span>
+          </div>
+        </div>
+        <form action="" class="form">
+          <div class="form-control">
+            <div class="label">
+              <label for="meta-diaria">Meta diária</label>
+              <span class="ml">3000ml</span>
+            </div>
+            <input type="range" class="range" id="meta-diaria" min="0" max="100" step="25" />
+          </div>
+          <div class="form-control">
+            <div class="label">
+              <label for="quantidade">Quantidade por timer</label>
+              <span class="ml">300ml</span>
+            </div>
+            <input type="range" class="range" id="quantidade" min="0" max="100" step="25" />
+          </div>
+          <div class="timer">
+            <div class="timer-control">
+              <input type="number">
+              <span>h</span>
+            </div>
+            <span>:</span>
+            <div class="timer-control">
+              <input type="number">
+              <span>m</span>
+            </div>
+          </div>
+          <button>Começar <img src="./images/arrow.svg" alt="Seta"></button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>
