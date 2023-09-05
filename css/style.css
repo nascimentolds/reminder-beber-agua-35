@@ -11,6 +11,7 @@
   --gray-500: #0f0e13;
   --gray-600: #1f2128;
   --gray-700: #4E4964;
+  --gray-800: #121317;
 
   /* TIPOGRAFIA */
   --poppins: "Poppins", sans-serif;
@@ -36,43 +37,43 @@ body {
 
 .heading1 {
   font-size: 24px;
-  line-height: 0%;
+  line-height: 1em;
   font-weight: 300;
 }
 
 .heading2 {
   font-size: 24px;
-  line-height: 0%;
+  line-height: 1em;
   font-weight: 600;
 }
 
 .title {
   font-size: 16px;
-  line-height: 3%;
+  line-height: 1.2em;
   font-weight: 500;
 }
 
 .card-text {
   font-size: 20px;
-  line-height: 0%;
+  line-height: 1em;
   font-weight: 600;
 }
 
 .card-text2 {
   font-size: 12px;
-  line-height: 0%;
+  line-height: 1em;
   font-weight: 700;
 }
 
 .timer {
   font-size: 32px;
-  line-height: 3%;
+  line-height: 1.2em;
   font-weight: 400;
 }
 
-.modal {
+.modal-text {
   font-size: 24px;
-  line-height: 3%;
+  line-height: 1.2em;
   font-weight: 600;
 }
 
@@ -192,7 +193,7 @@ border: none;
 .range::-webkit-slider-thumb{
 
 /*all:unset; limpa os estilos iniciais */
--webkit-appearance: none; /* remove a aparencia padão */
+-webkit-appearance: none; /* remove a aparencia padrão */
 border: none;
 
   width: 20px;
@@ -220,7 +221,7 @@ border: none;
   justify-content: space-between;
 }
 
-.timer-control input {
+.timer-control input[type="number"] {
   margin-right: 5px;
   display: flex;
   width: 64px;
@@ -232,6 +233,7 @@ border: none;
   border-radius: 10px;
   border: 1px solid var(--gray-200);
   background: var(--gray-400);
+  font-family: var(--poppins);
   text-align: center;
   font-size: 32px;
   font-weight: 400;
@@ -247,3 +249,118 @@ border: none;
   font-weight: 500;
 }
 
+/* Oculta as setas de aumento e diminuição em inputs de tipo 
+number em navegadores baseados no motor WebKit */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+/* Oculta as setas de aumento e diminuição em inputs de tipo number 
+em navegadores baseados no motor Gecko (Firefox) */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Oculta as setas de aumento e diminuição em inputs de tipo number 
+em navegadores baseados no motor Blink (Microsoft Edge) */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number]:focus {
+  border: 1px solid var(--blue);
+}
+
+/* BUTTON */
+.button {
+  display: flex;
+  width: 320px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; 
+  font-family: var(--poppins);
+  background: var(--blue);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--gray-500);
+  border-radius: 6px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background: var(--blue-dark);
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(18,19,23,0.7);
+  width: 100%;
+  height: 100%;
+}
+
+.lembrete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 299px;
+  height: 254px;
+  background: var(--gray-400);
+  margin: auto;
+  opacity: 100%;
+  border-radius: 23px;
+  box-shadow: 17px 25px 57px 0px rgba(17, 16, 24, 0.25);
+}
+
+.lembrete img {
+  width: 40px;
+}
+
+.lembrete button {
+  border-radius: 50%;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-200);
+  align-self: end;
+  margin: 15px 15px 0 0;
+}
+
+.box-lembrete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 196px;
+  color: var(--blue);
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* RESPONSIVIDADE */
+@media only screen and (min-width: 700px) {
+  main {
+    flex-direction: row;
+    width: 100%;
+    gap: 102px;
+  }
+
+  .form {
+    margin: 0;
+  }
+}
