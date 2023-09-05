@@ -5,5 +5,5 @@ metaDiaria.addEventListener('input', () => {
 
     const valor = metaDiaria.value
     
-    metaDiaria.style.background = `linear-gradient(to right, #7fc4ed ${valor}%, #322f40 ${100-valor}%)`;
+    metaDiaria.style.background = `linear-gradient(to right, #7fc4ed ${valor}%, #322f40 ${valor}%, #322f40 ${25-valor}%, #322f40 ${50-valor}%, #322f40 ${100-valor}%)`;
 })
