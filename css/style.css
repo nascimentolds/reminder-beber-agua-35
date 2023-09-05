@@ -167,6 +167,8 @@ input[type=range] {
   border-radius: 5px;
   background: #322f40;
   outline: none;
+  margin-block: 20px;
+  transition: width 0.2s ease-in-out;
 }
 
 /* para o Fire Fox */
@@ -189,12 +191,12 @@ border: none;
 
 .range::-webkit-slider-thumb{
 
-all:unset; /* limpa os estilos iniciais */
+/*all:unset; limpa os estilos iniciais */
 -webkit-appearance: none; /* remove a aparencia padão */
 border: none;
 
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: white;
+  background: #7fc4ed;
 }
