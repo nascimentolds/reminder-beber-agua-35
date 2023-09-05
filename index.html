@@ -19,7 +19,7 @@
         <div class="saudacao">
           <span class="heading1">Boa tarde,</span>
           <div class="nome">
-            <span class="heading2">Biro</span>
+            <span class="heading2">Marcelo</span>
             <img class="img" src="./images/aceno.svg" alt="Mão acenando" />
           </div>
         </div>
@@ -27,6 +27,8 @@
       <main>
         <div class="card">
           <span class="card-text2">80%</span>
+          <span class="card-text2" id="tempo-restante"></span>
+          <span class="card-text2" id="demo"></span>
           <div class="opcao">
             <img class="copo" src="./images/agua.svg" alt="Copo com água" />
           </div>
@@ -35,34 +37,34 @@
             <span class="title">Meta: 3L</span>
           </div>
         </div>
-        <form action="" class="form">
+        <div class="form">
           <div class="form-control">
             <div class="label">
               <label for="meta-diaria">Meta diária</label>
-              <span class="ml">3000ml</span>
+              <span class="ml" id="meta-ml">0ml</span>
             </div>
-            <input type="range" class="range" id="meta-diaria" min="0" max="3000" step="100" value="0" />
+            <input type="range" class="range" id="meta-diaria" min="0" max="4000" step="100" value="0" />
           </div>
           <div class="form-control">
             <div class="label">
               <label for="quantidade">Quantidade por timer</label>
-              <span class="ml">300ml</span>
+              <span class="ml" id="quantidade-ml">0ml</span>
             </div>
             <input type="range" class="range" id="quantidade" min="0" max="300" step="10" value="0" />
           </div>
           <div class="timer">
             <div class="timer-control">
-              <input type="number">
+              <input type="number" id="horas"  min="00" max="24" maxlength="2" placeholder="00">
               <span>h</span>
             </div>
             <span>:</span>
             <div class="timer-control">
-              <input type="number">
+              <input type="number" id="minutos" min="00" max="60" maxlength="2" placeholder="00">
               <span>m</span>
             </div>
           </div>
-          <button class="button">Começar <img src="./images/arrow.svg" alt="Seta"></button>
-        </form>
+          <button class="button" id="bt-comecar">Começar <img src="./images/arrow.svg" alt="Seta"></button>
+        </div>
       </main>
     </div>
 
