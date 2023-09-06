@@ -1,3 +1,10 @@
+// TODO:
+// Refatorar o código
+// Desabilitar controles
+// Botão para reiniciar
+// Pedir Nome do usuário
+// Saudação
+
 const metaDiaria = document.getElementById('meta-diaria');
 const quantidade = document.getElementById('quantidade');
 const metaMl = document.getElementById('meta-ml');
