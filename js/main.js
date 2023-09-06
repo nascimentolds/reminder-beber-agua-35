@@ -4,12 +4,14 @@
 // Botão para reiniciar
 // Pedir Nome do usuário
 // Saudação
+// finalizar ao concluir
 
 const metaDiaria = document.getElementById('meta-diaria');
 const quantidade = document.getElementById('quantidade');
 const metaMl = document.getElementById('meta-ml');
 const quantidadeMl = document.getElementById('quantidade-ml');
 const btComecar = document.getElementById('bt-comecar');
+const btReiniciar = document.getElementById('bt-reiniciar');
 const horas = document.getElementById('horas');
 const minutos = document.getElementById('minutos');
 const percentual = document.getElementById('percentual');
@@ -23,17 +25,22 @@ let mlTomado = 0;
 
 // Crie um novo elemento de áudio
 var audio = new Audio('./audio/agua.mp3');
+btReiniciar.style.display = 'none';
 
 btComecar.addEventListener('click', () => {
     // Tempo em segundos para a contagem regressiva
     const segundosIniciais = (parseInt(horas.value) * 3600) + (parseInt(minutos.value) * 60);
     tempoRestante = segundosIniciais;
     percentual.innerHTML = '0%';
+    btReiniciar.style.display = 'flex';
+    btComecar.style.display = 'none';
 
     function atualizarContagemRegressiva() {
         const horas = Math.floor(tempoRestante / 3600);
         const minutos = Math.floor((tempoRestante % 3600) / 60);
         const segundos = tempoRestante % 60;
+
+        desabilitarControles()
 
         const tempoRestanteTexto = `${horas}h ${minutos}m ${segundos}s`;
 
@@ -86,6 +93,26 @@ btComecar.addEventListener('click', () => {
 fechar.addEventListener('click', () => {
     modal.style.display = 'none';
 })
+
+btReiniciar.addEventListener('click', () => {
+    btComecar.style.display = 'flex';
+    btReiniciar.style.display = 'none';
+    habilitarControles();
+});
+
+function desabilitarControles() {
+    metaDiaria.setAttribute('disabled', 'disabled');
+    quantidade.setAttribute('disabled', 'disabled');
+    horas.setAttribute('disabled', 'disabled');
+    minutos.setAttribute('disabled', 'disabled');
+}
+
+function habilitarControles() {
+    metaDiaria.removeAttribute('disabled');
+    quantidade.removeAttribute('disabled');
+    horas.removeAttribute('disabled');
+    minutos.removeAttribute('disabled');
+}
 
 
 // MUDANDO A COR DO RANGE DE ACORDO COM O AVANÇO
