@@ -5,16 +5,23 @@ const quantidadeMl = document.getElementById('quantidade-ml');
 const btComecar = document.getElementById('bt-comecar');
 const horas = document.getElementById('horas');
 const minutos = document.getElementById('minutos');
+const percentual = document.getElementById('percentual');
+const modal = document.getElementById('modal');
+const fechar = document.getElementById('fechar');
+
+let contagemRegressivaInterval;
+let tempoRestante;
+let meta = 0;
+let mlTomado = 0;
+
+// Crie um novo elemento de áudio
+var audio = new Audio('./audio/agua.mp3');
 
 btComecar.addEventListener('click', () => {
-    console.log(metaDiaria.value)
-    console.log(quantidade.value)
-    console.log(horas.value)
-    console.log(minutos.value)
-
     // Tempo em segundos para a contagem regressiva
-    const segundos = (parseInt(horas.value) * 3600) + (parseInt(minutos.value) * 60);
-    let tempoRestante = segundos
+    const segundosIniciais = (parseInt(horas.value) * 3600) + (parseInt(minutos.value) * 60);
+    tempoRestante = segundosIniciais;
+    percentual.innerHTML = '0%';
 
     function atualizarContagemRegressiva() {
         const horas = Math.floor(tempoRestante / 3600);
@@ -27,18 +34,52 @@ btComecar.addEventListener('click', () => {
 
         if (tempoRestante <= 0) {
             clearInterval(contagemRegressivaInterval);
-            document.getElementById('tempo-restante').textContent = 'Tempo esgotado!';
+            document.getElementById('tempo-restante').textContent = 'Meta concluida!';
+            
+            // Incrementa a variável meta ao final da contagem regressiva
+            mlTomado += parseInt(quantidade.value);
+            meta += (parseInt(quantidade.value) / parseInt(metaDiaria.value)) * 100;
+            percentual.textContent = meta.toFixed(0) + '%';
+            modal.style.display = 'flex';
+            audio.play();
+
+            setTimeout(function () {
+                modal.style.display = 'none';
+            }, (segundosIniciais * 1000)/2);
+
+            // Verifica se a meta atingiu o valor de 100
+            if (meta < 100) {
+                // Se não atingiu, reinicie a contagem regressiva
+                reiniciarContagem();
+            }
+
+            if (meta >= 100) {
+                meta = 0;
+            }
         }
 
         tempoRestante--;
+    }
+
+    function reiniciarContagem() {
+        clearInterval(contagemRegressivaInterval);
+        const segundos = (parseInt(horas.value) * 3600) + (parseInt(minutos.value) * 60);
+        tempoRestante = segundos;
+        atualizarContagemRegressiva();
+        contagemRegressivaInterval = setInterval(atualizarContagemRegressiva, 1000);
     }
 
     // Chama a função inicialmente para exibir a contagem regressiva imediatamente
     atualizarContagemRegressiva();
 
     // Atualiza a contagem regressiva a cada segundo
-    const contagemRegressivaInterval = setInterval(atualizarContagemRegressiva, 1000); // 1000 ms = 1 segundo
+    contagemRegressivaInterval = setInterval(atualizarContagemRegressiva, 1000); // 1000 ms = 1 segundo
+});
+
+fechar.addEventListener('click', () => {
+    modal.style.display = 'none';
 })
+
 
 // MUDANDO A COR DO RANGE DE ACORDO COM O AVANÇO
 metaDiaria.addEventListener('input', () => {

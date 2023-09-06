@@ -26,15 +26,14 @@
       </header>
       <main>
         <div class="card">
-          <span class="card-text2">80%</span>
-          <span class="card-text2" id="tempo-restante"></span>
-          <span class="card-text2" id="demo"></span>
+          <span class="card-text2" id="percentual">0%</span>
           <div class="opcao">
             <img class="copo" src="./images/agua.svg" alt="Copo com água" />
           </div>
           <div class="meta">
             <span class="card-text">Beber água</span>
             <span class="title">Meta: 3L</span>
+            <span class="card-text2" id="tempo-restante"></span>
           </div>
         </div>
         <div class="form">
@@ -43,14 +42,14 @@
               <label for="meta-diaria">Meta diária</label>
               <span class="ml" id="meta-ml">0ml</span>
             </div>
-            <input type="range" class="range" id="meta-diaria" min="0" max="4000" step="100" value="0" />
+            <input type="range" class="range" id="meta-diaria" min="0" max="5000" step="100" value="0" />
           </div>
           <div class="form-control">
             <div class="label">
               <label for="quantidade">Quantidade por timer</label>
               <span class="ml" id="quantidade-ml">0ml</span>
             </div>
-            <input type="range" class="range" id="quantidade" min="0" max="300" step="10" value="0" />
+            <input type="range" class="range" id="quantidade" min="0" max="500" step="10" value="0" />
           </div>
           <div class="timer">
             <div class="timer-control">
@@ -68,9 +67,9 @@
       </main>
     </div>
 
-    <div class="modal">
+    <div class="modal" id="modal">
       <div class="lembrete">
-        <button><img src="./images/close.svg" alt="Fechar"></button>
+        <button id="fechar"><img src="./images/close.svg" alt="Fechar"></button>
         <div class="box-lembrete">
           <img src="./images/agua.svg" alt="Copo com água" />
           <!-- <span class="modal-text lembrete-texto">Lembrete para beber água!</span> -->
