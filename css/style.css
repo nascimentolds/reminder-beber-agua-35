@@ -77,6 +77,11 @@ body {
   font-weight: 600;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 /* HEADER */
 header {
   display: flex;
@@ -88,7 +93,7 @@ header {
   margin-left: 10px;
 }
 
-.nome {
+.user {
   display: flex;
   align-items: center;
 }
@@ -357,6 +362,36 @@ input[type=number]:focus {
   color: var(--blue);
   text-align: center;
   margin-top: 20px;
+}
+
+/* INICIO */
+.inicio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  margin-top: 100px;
+}
+
+.nome {
+  margin-block: 10px;
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid var(--gray-200);
+  background: var(--gray-400);
+  font-family: var(--poppins);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--gray-100);
+  width: 100%;
+}
+
+.erro {
+  color: red;
+  margin-bottom: 10px;
+  display: none;
 }
 
 /* RESPONSIVIDADE */

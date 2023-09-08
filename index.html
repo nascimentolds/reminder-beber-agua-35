@@ -13,13 +13,21 @@
     <title>Desafio #35 - Reminder para beber água</title>
   </head>
   <body>
+    <div class="inicio">
+      <div class="form-control">
+        <label for="nome">Digite seu nome</label>
+        <input type="text" class="nome" id="nome" placeholder="Nome" required>
+        <span class="erro">O nome precisa ser preenchido</span>
+        <button class="button" id="bt-iniciar">Iniciar <img src="./images/arrow.svg" alt="Seta"></button>
+      </div>
+    </div>
     <div class="container">
       <header>
         <img src="./images/icon.svg" alt="Emoji fazendo joinha" />
         <div class="saudacao">
-          <span class="heading1">Boa tarde,</span>
-          <div class="nome">
-            <span class="heading2">Marcelo</span>
+          <span class="heading1" id="ola"></span>
+          <div class="user">
+            <span class="heading2" id="user"></span>
             <img class="img" src="./images/aceno.svg" alt="Mão acenando" />
           </div>
         </div>

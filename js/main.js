@@ -1,10 +1,11 @@
 // TODO:
 // Refatorar o código
-// Desabilitar controles
-// Botão para reiniciar
-// Pedir Nome do usuário
-// Saudação
+// Desabilitar controles - OK
+// Botão para reiniciar - OK
+// Pedir Nome do usuário - OK
+// Saudação - OK
 // finalizar ao concluir
+// Validar campos em branco
 
 const metaDiaria = document.getElementById('meta-diaria');
 const quantidade = document.getElementById('quantidade');
@@ -12,11 +13,47 @@ const metaMl = document.getElementById('meta-ml');
 const quantidadeMl = document.getElementById('quantidade-ml');
 const btComecar = document.getElementById('bt-comecar');
 const btReiniciar = document.getElementById('bt-reiniciar');
+const btIniciar = document.getElementById('bt-iniciar');
 const horas = document.getElementById('horas');
 const minutos = document.getElementById('minutos');
+const nome = document.getElementById('nome');
+const user = document.getElementById('user');
 const percentual = document.getElementById('percentual');
 const modal = document.getElementById('modal');
 const fechar = document.getElementById('fechar');
+const inicio = document.querySelector('.inicio');
+const container = document.querySelector('.container');
+const erro = document.querySelector('.erro');
+const ola = document.getElementById('ola');
+
+container.style.display = 'none';
+btIniciar.addEventListener('click', () => {
+    if (nome.value != "") {
+        container.style.display = 'flex';
+        inicio.style.display = 'none';
+        user.innerHTML = nome.value;
+        ola.innerHTML = saudacao();
+    } else {
+        erro.style.display = 'block';
+    }
+});
+
+function saudacao() {
+    var data = new Date();
+    var hora = data.getHours();
+
+    if (hora >= 6 && hora < 12) {
+        return "Bom dia,";
+    } else if (hora >= 12 && hora < 18) {
+        return "Boa tarde,";
+    } else {
+        return "Boa noite,";
+    }
+}
+
+var mensagem = saudacao();
+console.log(mensagem);
+
 
 let contagemRegressivaInterval;
 let tempoRestante;
@@ -34,13 +71,12 @@ btComecar.addEventListener('click', () => {
     percentual.innerHTML = '0%';
     btReiniciar.style.display = 'flex';
     btComecar.style.display = 'none';
+    desabilitarControles()
 
     function atualizarContagemRegressiva() {
         const horas = Math.floor(tempoRestante / 3600);
         const minutos = Math.floor((tempoRestante % 3600) / 60);
         const segundos = tempoRestante % 60;
-
-        desabilitarControles()
 
         const tempoRestanteTexto = `${horas}h ${minutos}m ${segundos}s`;
 
@@ -101,17 +137,17 @@ btReiniciar.addEventListener('click', () => {
 });
 
 function desabilitarControles() {
-    metaDiaria.setAttribute('disabled', 'disabled');
-    quantidade.setAttribute('disabled', 'disabled');
-    horas.setAttribute('disabled', 'disabled');
-    minutos.setAttribute('disabled', 'disabled');
+    metaDiaria.disabled = true;
+    quantidade.disabled = true;
+    horas.disabled = true;
+    minutos.disabled = true;
 }
 
 function habilitarControles() {
-    metaDiaria.removeAttribute('disabled');
-    quantidade.removeAttribute('disabled');
-    horas.removeAttribute('disabled');
-    minutos.removeAttribute('disabled');
+    metaDiaria.disabled = false;    
+    quantidade.disabled = false;
+    horas.disabled = false;
+    minutos.disabled = false;
 }
 
 
