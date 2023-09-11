@@ -25,6 +25,7 @@ const inicio = document.querySelector('.inicio');
 const container = document.querySelector('.container');
 const erro = document.querySelector('.erro');
 const ola = document.getElementById('ola');
+const showMeta = document.getElementById('show-meta');
 
 container.style.display = 'none';
 btIniciar.addEventListener('click', () => {
@@ -51,10 +52,6 @@ function saudacao() {
     }
 }
 
-var mensagem = saudacao();
-console.log(mensagem);
-
-
 let contagemRegressivaInterval;
 let tempoRestante;
 let meta = 0;
@@ -69,9 +66,11 @@ btComecar.addEventListener('click', () => {
     const segundosIniciais = (parseInt(horas.value) * 3600) + (parseInt(minutos.value) * 60);
     tempoRestante = segundosIniciais;
     percentual.innerHTML = '0%';
+    showMeta.innerHTML = `Meta: ${parseFloat(metaDiaria.value) / 1000}L`;
     btReiniciar.style.display = 'flex';
     btComecar.style.display = 'none';
     desabilitarControles()
+    console.log(typeof(metaDiaria))
 
     function atualizarContagemRegressiva() {
         const horas = Math.floor(tempoRestante / 3600);
